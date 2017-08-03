@@ -12,7 +12,7 @@
     
     <title>
         
-            阿里云体验 | 
+            阿里云ECS部署hexo博客总结 | 
         
         Hexo
     </title>
@@ -65,18 +65,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="阿里云体验 | Hexo">
+    <meta property="og:title" content="阿里云ECS部署hexo博客总结 | Hexo">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="">
     
 
     
         <meta property="article:published_time" content="8月 02, 2017" />
-        <meta property="article:modified_time" content="8月 02, 2017" />
+        <meta property="article:modified_time" content="8月 03, 2017" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="阿里云体验 | Hexo">
+    <meta name="twitter:title" content="阿里云ECS部署hexo博客总结 | Hexo">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -110,10 +110,10 @@
         },
         "description": "拿起笔，记下心情"
     },
-    "headline": "阿里云体验",
+    "headline": "阿里云ECS部署hexo博客总结",
     "url": "http://yoursite.com/2017/08/02/阿里云体验/index.html",
     "datePublished": "8月 02, 2017",
-    "dateModified": "8月 02, 2017",
+    "dateModified": "8月 03, 2017",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -335,7 +335,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ECS部署hexo博客系统总结"><span class="post-toc-number">1.</span> <span class="post-toc-text">ECS部署hexo博客系统总结</span></a></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -373,7 +373,7 @@
         
     
             <p class="article-headline-p">
-                阿里云体验
+                阿里云ECS部署hexo博客总结
             </p>
         </div>
 
@@ -432,7 +432,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=阿里云体验&url=http://yoursite.com/2017/08/02/阿里云体验/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=阿里云ECS部署hexo博客总结&url=http://yoursite.com/2017/08/02/阿里云体验/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -441,7 +441,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=阿里云体验&url=http://yoursite.com/2017/08/02/阿里云体验/index.html&via=chen4w" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=阿里云ECS部署hexo博客总结&url=http://yoursite.com/2017/08/02/阿里云体验/index.html&via=chen4w" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -483,7 +483,36 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>#9.9元半年的套餐<br>看看借口借口借口</p>
+        <h2 id="ECS部署hexo博客系统总结"><a href="#ECS部署hexo博客系统总结" class="headerlink" title="ECS部署hexo博客系统总结"></a>ECS部署hexo博客系统总结</h2><p>一、申请阿里云ECS + 公网IP</p>
+<ul>
+<li><a href="https://free.aliyun.com" target="_blank" rel="external">半年免费套餐：</a></li>
+</ul>
+<p>二、<a href="https://wanwang.aliyun.com/domain/" target="_blank" rel="external">申请和购买域名</a></p>
+<p>三、<a href="https://help.aliyun.com/knowledge_detail/39783.html" target="_blank" rel="external">设置域名解析</a></p>
+<p>四、<a href="https://free.aliyun.com" target="_blank" rel="external">创建ECS实例，获得公网ip、root用户密码</a></p>
+<p>五、<a href="https://ninghao.net/video/3550" target="_blank" rel="external">SSH连接服务器、建立非root用户、SSH免密码登陆</a></p>
+<p>六、<a href="http://www.jianshu.com/p/834d7cc0668d" target="_blank" rel="external">部署本地hexo博客系统，可以git发布到github.io</a></p>
+<ul>
+<li><a href="https://material.viosey.com/start/#install-material" target="_blank" rel="external">主题选择</a></li>
+<li><p><a href="https://github.com/jaredly/hexo-admin" target="_blank" rel="external">管理界面</a></p>
+</li>
+<li><p><a href="https://material.viosey.com/services/" target="_blank" rel="external">站内搜索</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注意：对于本地搜索，主题的config设置：search  use: local</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>七、本地hexo博客，发布到ECS目录</p>
+<ul>
+<li><a href="http://www.jianshu.com/p/605c3d32cab9" target="_blank" rel="external">安装nginx，并使用 rsync 将 Hexo 部署到远程</a>    </li>
+<li><a href="http://www.stephenzhang.me/2017/07/06/hexo-%E9%98%BF%E9%87%8C%E4%BA%91ECS-CentOS7-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">参考二</a></li>
+</ul>
+<p>八、<a href="https://help.aliyun.com/document_detail/50775.html" target="_blank" rel="external">ECS部署nodes项目</a></p>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000006736884" target="_blank" rel="external">ECS启用端口</a><pre><code>（大坑，需要在服务器防火墙和阿里云的安全策略两处允许）
+  且服务器防火墙/etc/sysconfig/iptables，应从文件中原有规则复制修改，网文不可靠）
+</code></pre></li>
+<li><a href="https://help.aliyun.com/document_detail/25471.html" target="_blank" rel="external">阿里云安全规则</a></li>
+<li><a href="http://www.lcdaoxin.com/index.php/archives/147/" target="_blank" rel="external">通过ftp服务部署</a></li>
+</ul>
 
     
 
