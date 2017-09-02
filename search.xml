@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[阿里云ECS部署hexo博客总结]]></title>
-    <url>%2F2017%2F08%2F02%2F%E9%98%BF%E9%87%8C%E4%BA%91%E4%BD%93%E9%AA%8C%2F</url>
-    <content type="text"><![CDATA[ECS部署hexo博客系统总结一、申请阿里云ECS + 公网IP 半年免费套餐： 二、申请和购买域名 三、设置域名解析 四、创建ECS实例，获得公网ip、root用户密码 五、SSH连接服务器、建立非root用户、SSH免密码登陆 六、部署本地hexo博客系统，可以git发布到github.io 主题选择 管理界面 站内搜索 1注意：对于本地搜索，主题的config设置：search use: local 七、本地hexo博客，发布到ECS目录 安装nginx，并使用 rsync 将 Hexo 部署到远程 参考二 八、ECS部署nodes项目 ECS启用端口（大坑，需要在服务器防火墙和阿里云的安全策略两处允许） 且服务器防火墙/etc/sysconfig/iptables，应从文件中原有规则复制修改，网文不可靠） 阿里云安全规则 通过ftp服务部署]]></content>
+    <title><![CDATA[RepChain系统组成]]></title>
+    <url>%2F2017%2F09%2F02%2FRepChain%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90%2F</url>
+    <content type="text"><![CDATA[分层介绍RepChain的系统组成，各层所承担的任务，以及层之间的依赖关系。 RepChain的系统分层如下图： 我们从底层到上层对其要点逐一加以介绍： 数据层数据层负责数据格式定义，在此基础上实现数据的交换、验证、存储、读取及检索。 数据定义采用ProtoBuf定义数据格式，ProtoBuf可以生成各种主流语言的数据实体，并提供性能较高的序列化／反序列化。为下一步支持持久化到磁盘或者序列化到网络传输提供了有力支持。 数据加密／验证采用JDK内置的SHA256哈希作为数字摘要实现，采用JDK内置的SHA1withECDSA作为数字签名实现。 数据存储数据存储使用了两种方式的接口： 文件系统API：用于区块数据的存储和读取，支持区块分段存储； LevelDB：一方面用作WorldState的KV数据存取，另一方面为区块数据建立索引，提供高效的检索服务。 网络层网络层采用JDK内置的TLS实现（具体方式是TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256）支持入网许可验证，在此基础上进行去中心化的gossip组网，网络传播支持P2P和Pub／Sub两种方式。网络节点之间的应答内容是数据定义层的Protobuf消息体。 共识层网络层之上，负责共识的模块完成区块的输入共识和输出共识。 输入共识：在身份准入和节点间TLS安全信道的基础上，输入共识采用兼顾实时性和安全性的算法，该算法能够做到：需节点之间协商，随机抽签出顺位出块人，既照顾到交易的实时性要求，又能在一定程度防止入网节点串通作弊。 输出共识：抽签出的出块人在本地预执行交易，并较交易结果的merkle结果预出块发送给背书节点。背书节点在本地预执行，结果一致则进行背书签名。出块人收集到足够多的背书之后，正式出块。 合约层共识层执行或者预执行交易时，需要依赖合约容器提供交易执行环境。合约容器具备以下功能： 安全隔离：合约容器能够隔离合约脚本的性能问题（对CPU、内存或磁盘的异常消耗），但无法防止合约本身存在的业务安全隐患； 能够解释脚本并执行； 为脚本执行的提供上下文环境； 为脚本执行提供底层的API访问。 API层API层提供外部接口，允许第三方应用以Restful的形式与系统交互。RepChain在API层集成了Swagger-UI，允许开发者进行在线测试。API层提供以下基本功能： 交易提交：交易包括两类，即部署合约的交易、调用合约的交易，交易由调用者签名之后通过代理节点扩散到全网； 交易检索：允许按交易id在块链中检索交易； 区块检索：允许按区块高度或区块hash检索区块； 链检索：检索链的区块高度、当前hash等。 监控层监控层在区块链网络中收集事件和日志，并将其以Protobuf的格式序列化到Web端，以H5图形技术进行可视化实时状态展示和日志回放。]]></content>
   </entry>
   <entry>
-    <title><![CDATA[Hi 涂吧]]></title>
-    <url>%2F2017%2F08%2F02%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[RepChain目标]]></title>
+    <url>%2F2017%2F09%2F02%2FRepChain%E7%AE%80%E4%BB%8B%2F</url>
+    <content type="text"><![CDATA[RepChain面向工程实践，是轻量化、模块化、可视化，并易于集成的区块链核心组件。 RepChain命名含义 Re 即Responsive，采用Actor响应式编程，模块化实现； p 即permission，许可，提供身份准入机制，节点之间采用tls安全通信； chain 即区块链。顾名思义：RepChain是采用响应式编程实现的许可链。 许可链多数区块链项目的目标，既不是要建立比特币或者以太坊那样的在全世界范围提供公开接入服务的公开链，也不是要重蹈传统应用的中心化运维思路，而是需要利用区块链的去中心化特性，解决多个对等主体之间信任问题。许可链更加适合此类目标场景。 许可链在身份准入的基础之上建立安全信道，降低共识成本，提高交易实时性和交易通量。 动机对于上述场景，由于以下原因，开源的开放链并帮不上多少忙： 它们代码体量大，例如采用C++的bitcoin 10万行左右，而采用java的Nxt核心代码也超过4万5千行； 它们模块之前耦合度高，难以作为独立模块嵌入其他应用； 目标因此，我们决定开发一款区块链核心组件，它以上述场景为应用目标，具备以下特征： 标准化：尽可能采用经过工程实践验证的标准组件。一方面可以大幅减少代码量，容易为他人改造使用；另一方面它基础功能稳定，能满足工程实施的要求。 模块化：采用Actor模型实现。网络节点之间以消息格式交互，节点内部以状态驱动，从而具备模块替换的可行性。 可视化：区块链系统的共识部分，非专业人士不好理解。可视化的目标是将复制的交易传播、共识入块的复杂过程直观化，容易理解。]]></content>
   </entry>
 </search>
