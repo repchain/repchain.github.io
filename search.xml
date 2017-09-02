@@ -1,62 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-    
-    <entry>
-      <title><![CDATA[阿里云ECS部署hexo博客总结]]></title>
-      <url>/2017/08/02/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BD%93%E9%AA%8C/</url>
-      <content type="html"><![CDATA[<h2 id="ECS部署hexo博客系统总结"><a href="#ECS部署hexo博客系统总结" class="headerlink" title="ECS部署hexo博客系统总结"></a>ECS部署hexo博客系统总结</h2><p>一、申请阿里云ECS + 公网IP</p>
-<ul>
-<li><a href="https://free.aliyun.com" target="_blank" rel="external">半年免费套餐：</a></li>
-</ul>
-<p>二、<a href="https://wanwang.aliyun.com/domain/" target="_blank" rel="external">申请和购买域名</a></p>
-<p>三、<a href="https://help.aliyun.com/knowledge_detail/39783.html" target="_blank" rel="external">设置域名解析</a></p>
-<p>四、<a href="https://free.aliyun.com" target="_blank" rel="external">创建ECS实例，获得公网ip、root用户密码</a></p>
-<p>五、<a href="https://ninghao.net/video/3550" target="_blank" rel="external">SSH连接服务器、建立非root用户、SSH免密码登陆</a></p>
-<p>六、<a href="http://www.jianshu.com/p/834d7cc0668d" target="_blank" rel="external">部署本地hexo博客系统，可以git发布到github.io</a></p>
-<ul>
-<li><a href="https://material.viosey.com/start/#install-material" target="_blank" rel="external">主题选择</a></li>
-<li><p><a href="https://github.com/jaredly/hexo-admin" target="_blank" rel="external">管理界面</a></p>
-</li>
-<li><p><a href="https://material.viosey.com/services/" target="_blank" rel="external">站内搜索</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注意：对于本地搜索，主题的config设置：search  use: local</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>七、本地hexo博客，发布到ECS目录</p>
-<ul>
-<li><a href="http://www.jianshu.com/p/605c3d32cab9" target="_blank" rel="external">安装nginx，并使用 rsync 将 Hexo 部署到远程</a>    </li>
-<li><a href="http://www.stephenzhang.me/2017/07/06/hexo-%E9%98%BF%E9%87%8C%E4%BA%91ECS-CentOS7-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">参考二</a></li>
-</ul>
-<p>八、<a href="https://help.aliyun.com/document_detail/50775.html" target="_blank" rel="external">ECS部署nodes项目</a></p>
-<ul>
-<li><a href="https://segmentfault.com/a/1190000006736884" target="_blank" rel="external">ECS启用端口</a><pre><code>（大坑，需要在服务器防火墙和阿里云的安全策略两处允许）
-  且服务器防火墙/etc/sysconfig/iptables，应从文件中原有规则复制修改，网文不可靠）
-</code></pre></li>
-<li><a href="https://help.aliyun.com/document_detail/25471.html" target="_blank" rel="external">阿里云安全规则</a></li>
-<li><a href="http://www.lcdaoxin.com/index.php/archives/147/" target="_blank" rel="external">通过ftp服务部署</a></li>
-</ul>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hi 涂吧]]></title>
-      <url>/2017/08/02/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-      
-        
-    </entry>
-    
-  
-  
+<search>
+  <entry>
+    <title><![CDATA[阿里云ECS部署hexo博客总结]]></title>
+    <url>%2F2017%2F08%2F02%2F%E9%98%BF%E9%87%8C%E4%BA%91%E4%BD%93%E9%AA%8C%2F</url>
+    <content type="text"><![CDATA[ECS部署hexo博客系统总结一、申请阿里云ECS + 公网IP 半年免费套餐： 二、申请和购买域名 三、设置域名解析 四、创建ECS实例，获得公网ip、root用户密码 五、SSH连接服务器、建立非root用户、SSH免密码登陆 六、部署本地hexo博客系统，可以git发布到github.io 主题选择 管理界面 站内搜索 1注意：对于本地搜索，主题的config设置：search use: local 七、本地hexo博客，发布到ECS目录 安装nginx，并使用 rsync 将 Hexo 部署到远程 参考二 八、ECS部署nodes项目 ECS启用端口（大坑，需要在服务器防火墙和阿里云的安全策略两处允许） 且服务器防火墙/etc/sysconfig/iptables，应从文件中原有规则复制修改，网文不可靠） 阿里云安全规则 通过ftp服务部署]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hi 涂吧]]></title>
+    <url>%2F2017%2F08%2F02%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
 </search>
