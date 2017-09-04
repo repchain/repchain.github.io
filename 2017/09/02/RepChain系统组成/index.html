@@ -72,7 +72,7 @@
 
     
         <meta property="article:published_time" content="9月 02, 2017" />
-        <meta property="article:modified_time" content="9月 02, 2017" />
+        <meta property="article:modified_time" content="9月 04, 2017" />
     
 
     <!-- The Twitter Card protocol -->
@@ -113,7 +113,7 @@
     "headline": "RepChain系统组成",
     "url": "http://yoursite.com/2017/09/02/RepChain系统组成/index.html",
     "datePublished": "9月 02, 2017",
-    "dateModified": "9月 02, 2017",
+    "dateModified": "9月 04, 2017",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -498,22 +498,22 @@
 <h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><p>网络层采用JDK内置的TLS实现（具体方式是<code>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</code><br>）支持入网许可验证，在此基础上进行去中心化的gossip组网，网络传播支持P2P和Pub／Sub两种方式。<br>网络节点之间的应答内容是数据定义层的Protobuf消息体。</p>
 <h2 id="共识层"><a href="#共识层" class="headerlink" title="共识层"></a>共识层</h2><p>网络层之上，负责共识的模块完成区块的输入共识和输出共识。</p>
 <ul>
-<li>输入共识：在身份准入和节点间TLS安全信道的基础上，输入共识采用兼顾实时性和安全性的算法，该算法能够做到：需节点之间协商，随机抽签出顺位出块人，既照顾到交易的实时性要求，又能在一定程度防止入网节点串通作弊。</li>
-<li>输出共识：抽签出的出块人在本地预执行交易，并较交易结果的<code>merkle</code>结果预出块发送给背书节点。背书节点在本地预执行，结果一致则进行背书签名。出块人收集到足够多的背书之后，正式出块。</li>
+<li>输入共识：在身份准入和节点间TLS安全信道的基础上，输入共识采用兼顾实时性和安全性的算法，该算法能够做到：无需节点之间协商，随机抽签出顺位出块人，既照顾到交易的实时性要求，又能在一定程度防止入网节点串通作弊。</li>
+<li>输出共识：抽签出的出块人在本地预执行交易，比较交易结果的<code>merkle</code>根，预出块发送给背书节点。背书节点在本地预执行，结果一致则进行背书签名。出块人收集到足够多的背书之后，正式出块。</li>
 </ul>
 <h2 id="合约层"><a href="#合约层" class="headerlink" title="合约层"></a>合约层</h2><p>共识层执行或者预执行交易时，需要依赖合约容器提供交易执行环境。<br>合约容器具备以下功能：</p>
 <ul>
-<li>安全隔离：合约容器能够隔离合约脚本的性能问题（对CPU、内存或磁盘的异常消耗），但无法防止合约本身存在的业务安全隐患；</li>
+<li>安全隔离：合约容器能够隔离合约脚本的性能问题（对CPU、内存或磁盘的异常消耗），避免造成宿主节点崩溃；但它无法防止合约本身存在的业务功能安全隐患；</li>
 <li>能够解释脚本并执行；</li>
-<li>为脚本执行的提供上下文环境；</li>
+<li>为脚本执行提供上下文环境；</li>
 <li>为脚本执行提供底层的API访问。</li>
 </ul>
 <h2 id="API层"><a href="#API层" class="headerlink" title="API层"></a>API层</h2><p>API层提供外部接口，允许第三方应用以Restful的形式与系统交互。<br>RepChain在API层集成了Swagger-UI，允许开发者进行在线测试。<br>API层提供以下基本功能：</p>
 <ul>
-<li>交易提交：交易包括两类，即部署合约的交易、调用合约的交易，交易由调用者签名之后通过代理节点扩散到全网；</li>
+<li>交易提交：包括两类交易的提交，即部署合约的交易、调用合约的交易，交易由调用者签名之后通过代理节点扩散到全网；</li>
 <li>交易检索：允许按交易id在块链中检索交易；</li>
 <li>区块检索：允许按区块高度或区块hash检索区块；</li>
-<li>链检索：检索链的区块高度、当前hash等。</li>
+<li>链检索：获得链的最新区块高度、当前hash等。</li>
 </ul>
 <h2 id="监控层"><a href="#监控层" class="headerlink" title="监控层"></a>监控层</h2><p>监控层在区块链网络中收集事件和日志，并将其以Protobuf的格式序列化到Web端，以H5图形技术进行可视化实时状态展示和日志回放。</p>
 
@@ -534,6 +534,14 @@
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2017/09/03/RepChain运行机制/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
@@ -633,7 +641,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">3</span></a>
             </ul>
         </li>
         
